@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './Layout.module.css'
 
-const Layout = ({id=0, title, descr, urlBg, colorBg}) => {
-    const background = urlBg ? { backgroundImage: `url(${urlBg})` } : colorBg ? {background: colorBg} : null
+const Layout = ({id = 0, title, urlBg, colorBg, children}) => {
+    const background = urlBg ? {backgroundImage: `url(${urlBg})`} : colorBg ? {background: colorBg} : null
     return (
         <section className={styles.root} id={id}>
             <div className={styles.wrapper} style={background}>
@@ -12,7 +12,7 @@ const Layout = ({id=0, title, descr, urlBg, colorBg}) => {
                         <span className={styles.separator}></span>
                     </div>
                     <div className={styles.desc + ' ' + styles.full}>
-                        {descr && <p>{descr}</p>}
+                        {children}
                     </div>
                 </article>
             </div>
