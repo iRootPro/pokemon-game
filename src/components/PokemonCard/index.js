@@ -6,7 +6,7 @@ const PokemonCard = ({type, values, id, img, name}) => {
     const [isActive, setActive] = useState(false)
 
     const handleClick = () => {
-        setActive(true)
+        setActive(prevState => !prevState)
     }
     return (
         <div className={styles.root} onClick={handleClick}>
