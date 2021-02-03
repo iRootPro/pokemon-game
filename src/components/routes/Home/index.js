@@ -11,14 +11,14 @@ import MenuHeader from "../../MenuHeader";
 
 
 function HomePage({onChangePage}) {
-    const items = pokemons.map(pokemon => <PokemonCard
-        key={pokemon.id}
-        type={pokemon.type}
-        values={pokemon.values}
-        img={pokemon.img}
-        name={pokemon.name}
-        id={pokemon.id}
-    />)
+    // const items = pokemons.map(pokemon => <PokemonCard
+    //     key={pokemon.id}
+    //     type={pokemon.type}
+    //     values={pokemon.values}
+    //     img={pokemon.img}
+    //     name={pokemon.name}
+    //     id={pokemon.id}
+    // />)
     const handleClickButton = () => {
         console.log('HomePage')
         onChangePage && onChangePage('game')
@@ -48,11 +48,11 @@ function HomePage({onChangePage}) {
                     be captured and changed into the player's color instead.
                 </p>
             </Layout>
-            <Layout title='Покемоны' descr='Описание для layout 2' id={2} colorBg='green'>
-                <div className={styles.flex}>
-                    {items}
-                </div>
-            </Layout>
+            {/*<Layout title='Покемоны' descr='Описание для layout 2' id={2} colorBg='green'>*/}
+            {/*    <div className={styles.flex}>*/}
+            {/*        {items}*/}
+            {/*    </div>*/}
+            {/*</Layout>*/}
             <Layout title='Заголовок для Layout 3' descr='Описание для layout 3' id={3} urlBg={bg3}/>
             <Footer/>
         </div>
