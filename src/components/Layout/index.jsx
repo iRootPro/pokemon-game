@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames'
 import styles from './Layout.module.css'
 
 const Layout = ({id = 0, title, urlBg, colorBg, children}) => {
@@ -11,7 +12,7 @@ const Layout = ({id = 0, title, urlBg, colorBg, children}) => {
                         {title && <h3>{title}</h3>}
                         <span className={styles.separator}></span>
                     </div>
-                    <div className={styles.desc + ' ' + styles.full}>
+                    <div className={cn(styles.desc, styles.full)}>
                         {children}
                     </div>
                 </article>
