@@ -1,11 +1,11 @@
 import React from 'react';
+import {useHistory} from 'react-router-dom'
 import styles from './Header.module.css'
 
-const Header = ({title, descr, onClickButton}) => {
-
+const Header = ({title, descr}) => {
+    const history = useHistory()
     const handleClick = () => {
-        console.log('Header')
-        onClickButton && onClickButton('game')
+        history.push('/game')
     }
     return (
         <header className={styles.root}>
