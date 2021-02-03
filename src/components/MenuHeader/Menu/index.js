@@ -10,11 +10,15 @@ const Menu = ({isOpen}) => {
         {name: 'CONTACT', href: "#contact"}
     ]
     return (
-        <div className={cn(styles.menuContainer, {[styles.active]: isOpen})}>
+        <div className={cn(styles.menuContainer,
+            {
+                [styles.active]: isOpen === true,
+                [styles.deactive]: isOpen === false
+            })}>
             <div className={styles.overlay}/>
             <div className={styles.menuItems}>
                 <ul>
-                    {links.map(link => <li><a href={link.href}>{link.name}</a></li>)}
+                    {links.map((link, index) => <li key={index}><a href={link.href}>{link.name}</a></li>)}
                 </ul>
             </div>
         </div>
