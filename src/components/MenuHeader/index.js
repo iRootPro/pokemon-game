@@ -7,9 +7,10 @@ const MenuHeader = ({bgActive}) => {
     const handleOnChangeOpen = () => {
         setOpen(prevState => !prevState)
     }
+
     return (
         <div>
-            <Menu isOpen={open}/>
+            <Menu isOpen={open} handleOnChangeOpen={handleOnChangeOpen}/>
             <NavBar isOpen={open} onChangeOpen={handleOnChangeOpen} bgActive={bgActive}/>
         </div>
     );
