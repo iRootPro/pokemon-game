@@ -9,8 +9,7 @@ const GamePage = () => {
     const changeActive = (id) => {
         const newPs = ps.map(p => {
             if (p.id === id) {
-                p.isActive = true
-                return p
+                return {...p, isActive: true}
             }
             return p
         })
