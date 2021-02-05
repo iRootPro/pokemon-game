@@ -3,7 +3,6 @@ import HomePage from "./components/routes/Home";
 import GamePage from "./components/routes/Game";
 import {useRouteMatch, Switch, Route} from "react-router-dom";
 import cn from 'classnames'
-
 import AboutPage from "./components/routes/About";
 import NotFound from "./components/routes/NotFound";
 import MenuHeader from "./components/MenuHeader";
