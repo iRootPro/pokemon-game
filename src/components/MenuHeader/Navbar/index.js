@@ -2,20 +2,20 @@ import React from 'react';
 import styles from './style.module.css'
 import cn from 'classnames'
 
-const NavBar = ({isOpen, onChangeOpen}) => {
+const NavBar = ({isOpen, onChangeOpen, bgActive = false}) => {
     const handleClick = () => {
         onChangeOpen && onChangeOpen()
     }
 
     return (
-        <nav className={styles.navbar}>
+        <nav className={cn(styles.navbar, {[styles.bgActive]: bgActive})}>
             <div className={styles.navWrapper}>
                 <p className={styles.brand}>
                     LOGO
                 </p>
-                <a className={cn(styles.menuButton, {[styles.active]: isOpen})} onClick={handleClick}>
+                <div className={cn(styles.menuButton, {[styles.active]: isOpen})} onClick={handleClick}>
                     <span/>
-                </a>
+                </div>
             </div>
         </nav>
     );

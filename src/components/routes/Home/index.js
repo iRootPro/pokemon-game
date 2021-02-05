@@ -1,27 +1,25 @@
 import React from "react";
-import styles from './style.module.css'
+import {useHistory} from 'react-router-dom'
 import Header from "./../../Header";
 import Layout from "./../../Layout";
 import Footer from "./../../Footer";
-import pokemons from './../../../db/pokemons'
 import bg1 from './../../../assets/bg1.jpg'
 import bg3 from './../../../assets/bg3.jpg'
-import PokemonCard from "./../../PokemonCard";
 import MenuHeader from "../../MenuHeader";
 
 
-function HomePage({onChangePage}) {
-    const items = pokemons.map(pokemon => <PokemonCard
-        key={pokemon.id}
-        type={pokemon.type}
-        values={pokemon.values}
-        img={pokemon.img}
-        name={pokemon.name}
-        id={pokemon.id}
-    />)
+function HomePage() {
+    const history = useHistory()
+    // const items = pokemons.map(pokemon => <PokemonCard
+    //     key={pokemon.id}
+    //     type={pokemon.type}
+    //     values={pokemon.values}
+    //     img={pokemon.img}
+    //     name={pokemon.name}
+    //     id={pokemon.id}
+    // />)
     const handleClickButton = () => {
-        console.log('HomePage')
-        onChangePage && onChangePage('game')
+        history.push('/game')
     }
     return (
         <div>
@@ -48,11 +46,11 @@ function HomePage({onChangePage}) {
                     be captured and changed into the player's color instead.
                 </p>
             </Layout>
-            <Layout title='Покемоны' descr='Описание для layout 2' id={2} colorBg='green'>
-                <div className={styles.flex}>
-                    {items}
-                </div>
-            </Layout>
+            {/*<Layout title='Покемоны' descr='Описание для layout 2' id={2} colorBg='green'>*/}
+            {/*    <div className={styles.flex}>*/}
+            {/*        {items}*/}
+            {/*    </div>*/}
+            {/*</Layout>*/}
             <Layout title='Заголовок для Layout 3' descr='Описание для layout 3' id={3} urlBg={bg3}/>
             <Footer/>
         </div>

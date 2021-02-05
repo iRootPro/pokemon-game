@@ -3,11 +3,10 @@ import styles from './PokemonCard.module.css'
 import cn from 'classnames'
 import cardBackImg from './../../assets/card-back-side.jpg'
 
-const PokemonCard = ({type, values, id, img, name}) => {
-    const [isActive, setActive] = useState(false)
+const PokemonCard = ({type, values, id, img, name, changeActive, isActive}) => {
 
     const handleClick = () => {
-        setActive(prevState => !prevState)
+        changeActive(id)
     }
     return (
         <div className={styles.root} onClick={handleClick}>
