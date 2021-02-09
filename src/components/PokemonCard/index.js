@@ -1,44 +1,46 @@
-import React, {useState} from 'react';
-import styles from './PokemonCard.module.css'
+import React from 'react';
+import s from './PokemonCard.module.css'
 import cn from 'classnames'
-import cardBackImg from './../../assets/card-back-side.jpg'
 
-const PokemonCard = ({type, values, id, img, name, changeActive, active}) => {
+const PokemonCard = ({type, values, id, img, name, changeActive, active = true, className, minimize, isSelected, selectPokemon}) => {
     const handleClick = () => {
-        changeActive(id)
+        selectPokemon(id)
     }
     return (
-        <div className={styles.root} onClick={handleClick}>
-            <div className={cn(styles.pokemonCard, {[styles.active]: active})}>
-                <div className={styles.cardFront}>
-                    <div className={cn(styles.wrap, styles.front)}>
-                        <div className={cn(styles.pokemon, styles[type])}>
-                            <div className={styles.values}>
-                                <div className={cn(styles.count, styles.top)}>{values.top}</div>
-                                <div className={cn(styles.count, styles.right)}>{values.right}</div>
-                                <div className={cn(styles.count, styles.bottom)}>{values.bottom}</div>
-                                <div className={cn(styles.count, styles.left)}>{values.left}</div>
-                            </div>
-                            <div className={styles.imgContainer}>
-                                <img src={img} alt={name}/>
-                            </div>
-                            <div className={styles.info}>
-                                <span className={styles.number}>#{id}</span>
-                                <h3 className={styles.name}>{name}</h3>
-                                <small className={styles[type]}>Type: <span>{type}</span></small>
-                            </div>
+        // <div className={s.root} onClick={handleClick}>
+        <div className={cn(className, s.pokemonCard, {[s.active]: active}, {[s.selected]: isSelected})}
+             onClick={handleClick}>
+            <div className={s.cardFront}>
+                <div className={cn(s.wrap, s.front)}>
+                    <div className={cn(s.pokemon, s[type])}>
+                        <div className={s.values}>
+                            <div className={cn(s.count, s.top)}>{values.top}</div>
+                            <div className={cn(s.count, s.right)}>{values.right}</div>
+                            <div className={cn(s.count, s.bottom)}>{values.bottom}</div>
+                            <div className={cn(s.count, s.left)}>{values.left}</div>
                         </div>
+                        <div className={s.imgContainer}>
+                            <img src={img} alt={name}/>
+                        </div>
+                        {!minimize && (<div className={s.info}>
+                            <span className={s.number}>#{id}</span>
+                            <h3 className={s.name}>
+                                {name}
+                            </h3>
+                            <small className={s.type}>
+                                Type: <span>{type}</span>
+                            </small>
+                        </div>)}
                     </div>
                 </div>
-
-                <div className={styles.cardBack}>
-                    <div className={cn(styles.wrap, styles.back)}>
-                        <img src={cardBackImg} alt="Сard Backed"/>
-                    </div>
-                </div>
-
             </div>
+
+            <div className={s.cardBack}>
+                <div className={cn(s.wrap, s.back)}/>
+            </div>
+
         </div>
+        // </div>
     )
 }
 export default PokemonCard;
