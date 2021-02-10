@@ -1,0 +1,16 @@
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    max-height: 14.8vw;
+    max-width: 10vh;
+}
+
+.root {
+    width: 268px;
+    height: 388px;
+    margin: 16px;
+    perspective: 1000px;
+}
